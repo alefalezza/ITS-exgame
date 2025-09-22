@@ -2,8 +2,6 @@
 
 ## Users
 
-### Role: Admin
-
 ```ts
 {
     "_id": ObjectId("1"),
@@ -14,54 +12,11 @@
     "image"?: 1010101010110,
     "created_at": ISODate("2024-01-01T14:30:00Z"),
     "updated_at"?: ISODate("2024-01-01T14:30:00Z"),
-    "role": "admin",
+    "role": "student|teacher|admin",
+    "data": {
+      // user - related data, maybe user class, subject taught  by the teacher, everything can be useful about the user profile
+    }
 }
-```
-
-### Role: Teacher
-
-```ts
-{
-    "_id": ObjectId("2"),
-    "first_name": "Name",
-    "last_name": "Surname",
-    "email": "example@gmail.com",
-    "password": "HashedPassword",
-    "image"?: 1010101010110,
-    "created_at": ISODate("2024-01-01T14:30:00Z"),
-    "updated_at"?: ISODate("2024-01-01T14:30:00Z"),
-    "role": "teacher",
-    "subjects"?: ["Node_JS", "Testing", "React"],
-    "teacher_classes"?: [ObjectId("1"), ObjectId("2")],
-}
-```
-
-### Role: Student
-
-```ts
-{
-    "_id": ObjectId("3"),
-    "first_name": "Name",
-    "last_name": "Surname",
-    "email": "example@gmail.com",
-    "password": "HashedPassword",
-    "image"?: 1010101010110,
-    "created_at": ISODate("2024-01-01T14:30:00Z"),
-    "updated_at"?: ISODate("2024-01-01T14:30:00Z"),
-    "role": "student",
-    "student_class"?: ObjectId("1")
-}
-```
-
-## Classes
-
-```ts
-[
-  {
-    _id: ObjectId("1"),
-    name: "Cookie",
-  },
-];
 ```
 
 ## Exams
@@ -74,7 +29,7 @@
     created_at: ISODate("2024-01-20T10:00:00Z"),
     updated_at: ISODate("2024-01-20T10:00:00Z"),
     created_by: ObjectId(""), //id del docente che fa l'esame
-    classes: [ObjectId("1")], //array delle classi per cui viene fatto l'esame
+    schedule_date: ISODate("2024-01-20T10:00:00Z"), // data dell'esame
     max_time: 90,
     questions: [
       {
@@ -100,20 +55,6 @@
 ];
 ```
 
-## Sessions
-
-```ts
-[
-  {
-    _id: ObjectId(""),
-    exam_id: ObjectId(""),
-    student_class: ObjectId("1"),
-    start_date: ISODate("2024-01-20T10:00:00Z"),
-    start_time: ISODate("2024-01-20T10:00:00Z"),
-  },
-];
-```
-
 ## Subscriptions
 
 ```ts
@@ -121,7 +62,7 @@
   {
     _id: ObjectId(""),
     student_id: ObjectId(""),
-    session_id: ObjectId(""),
+    exam_id: ObjectId(""),
     questions: [
       {
         question_id: ObjectId("..."),
