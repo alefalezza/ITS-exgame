@@ -10,6 +10,7 @@ export type QuestionProps = {
   answers: Answer[];
 };
 
+// Posso dichiarare quanti componenti voglio all'interno dello stesso file
 const QuestionFunctions: React.FC = () => (
   <div className={classes.functions}>
     <button>Chiedi al docente</button>

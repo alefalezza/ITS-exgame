@@ -8,6 +8,7 @@ type PageTitleProps = {
 export const PageTitle: React.FC<PageTitleProps> = ({ title, backlink }) => {
   return (
     <div className={classes.title}>
+      {/* Qui sotto vedi un'espressione condizionale. Corrisponde a un "if" */}
       {backlink && (
         <a href={backlink} className={classes.back}>
           indietro
