@@ -1,0 +1,23 @@
+.title {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  margin: 36px 0;
+  .back {
+    display: block;
+    padding: 4px 8px;
+    text-decoration: none;
+    color: var(--primary-color);
+    &::before {
+      content: "← ";
+    }
+    &:hover {
+      color: #fff;
+      background-color: var(--primary-color);
+      border-radius: var(--border-radius);
+    }
+  }
+
+  h1 {
+  }
+}

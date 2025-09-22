@@ -1,0 +1,39 @@
+nav {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  flex-grow: 2;
+  padding-left: 20px;
+  ul {
+    font-size: 1.1em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    a {
+      display: block;
+      padding: 8px 12px;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      color: inherit;
+      font-weight: 500;
+      color: #999;
+      &:hover {
+        color: #fff;
+        background-color: var(--primary-color);
+      }
+    }
+
+    &.user {
+      font-size: 0.95em;
+      a {
+        color: var(--primary-color);
+        &:hover {
+          color: #fff;
+          background-color: var(--primary-color);
+        }
+      }
+    }
+  }
+}
